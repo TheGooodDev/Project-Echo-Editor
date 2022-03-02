@@ -1,0 +1,248 @@
+body {
+    background-color: #181818;
+    margin: 0px;
+    padding: 0px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+#header{
+    text-align: center;
+}
+
+#loading {
+    z-index: 1;
+    background-color: grey;
+    opacity: 90%;
+    font-size: 50px;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+}
+
+.textarea{
+    resize: none;
+}
+
+#labelmusic {
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+}
+
+#loadmusic {
+    display: none;
+    margin-left:25%;
+    position: fixed;
+    height: 80vh;
+    width: 50vw;
+    background-color: #00b1ca;
+    border-radius: 10px;
+    border: 3px solid #017585;
+}
+
+.logo{
+    height: 100px;
+}
+
+.item{
+    flex-shrink: 2;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+}
+
+
+#progressbar{
+    position: absolute;
+    height: 90%;
+    width: 2px;
+    background-color: white;
+}
+
+.slider{
+    height: 80px;
+    border: 2px black solid;
+    display: flex;
+    flex-direction: row;
+}
+
+.lineslider{
+    overflow: scroll;
+}
+
+.line {
+    height: 60px;
+    border: 2px black solid;
+    display: flex;
+    flex-direction: row;
+}
+
+.allLine{
+    margin: 5px;
+    overflow: scroll;
+    overflow-y: hidden;
+}
+.allLine::-webkit-scrollbar{
+    /* display: none; */
+}
+
+.note{
+    color: white;
+    border-right: 1px aqua solid;
+    height: 100%;
+}
+
+.pressnote{
+    background-color: #A8DBA8;
+    opacity: 100%;
+}
+
+.lastnote{
+    color: white;
+    border-right: 3px rgb(255, 0, 0) solid;
+    height: 100%;
+}
+
+.slideleftnote{
+    color: white;
+    border-right: 1px aqua solid;
+    height: 100%;
+}
+
+.slideleftpressnote{
+    background-color: #a8cbdb;
+    opacity: 100%;
+}
+
+.slideleftlastnote{
+    color: white;
+    border-right: 3px rgb(255, 0, 0) solid;
+    height: 100%;
+}
+
+.sliderightnote{
+    color: white;
+    border-right: 1px aqua solid;
+    height: 100%;
+}
+
+.sliderightpressnote{
+    background-color: #dbbca8;
+    opacity: 100%;
+}
+
+.sliderightlastnote{
+    color: white;
+    border-right: 3px rgb(255, 0, 0) solid;
+    height: 100%;
+}
+
+
+
+.divslide {
+    color: white;
+    background-color: #181818;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.working{
+    text-align: center;
+    font-size: 20px;
+}
+
+.volume {
+    margin-left: 50px;
+}
+
+#play {
+    height: 40px;
+    width: 40px;
+    padding: 5px;
+    border-radius: 100%;
+    border: none;
+    background-color: rgb(29, 185, 84);
+}
+
+#bfile {
+    height: 30px;
+    width: 30px;
+    padding: 5px;
+    border-radius: 100%;
+    border: none;
+    background-color: #00b1ca;
+}
+
+#export {
+    height: 30px;
+    width: 30px;
+    padding: 5px;
+    border-radius: 100%;
+    border: none;
+    background-color: rgb(22, 228, 235);
+}
+
+.label-file {
+    border-radius: 100%;
+    height: 40px;
+    width: 40px;
+    background-color: #00b1ca;
+    text-align: center;
+    color: black;
+}
+/* 
+.input-file {
+    display: none;
+} */
+
+.cname{
+    color: white;
+    margin-left: 5px;
+}
+
+i.fa{
+    font-size: 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.input-map{
+    
+}
+
+/* width */
+::-webkit-scrollbar {
+    height: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: none;
+    border: 1px white solid;
+    border-radius: 5px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #00b1ca; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

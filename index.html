@@ -1,0 +1,105 @@
+<html>
+
+<head>
+    <!DOCTYPE html>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/stylesheet.css">
+    <link rel="icon" href="/img/echo_profil_sans_fond.png">
+    <script src="https://unpkg.com/wavesurfer.js@5.2.0/dist/wavesurfer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.2.3/plugin/wavesurfer.timeline.min.js"></script>
+    <script src="https://kit.fontawesome.com/833e85293e.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="module" src="/js/Waveform.js"></script>
+</head>
+
+
+<body>
+    <div id="loading" style="display: none;">
+        LOADING
+    </div>
+
+    <div id="header" class="item">
+        <img class="logo"  src="/img/Logo_final_Project_Echo_Neon_Wave.png">
+    </div>
+    <div class="container item">
+
+        <div class="audiospecter">
+            <!-- <div id="progressbar"></div> -->
+            <div id="aline" class="allLine">
+                <label class="cname">Slider left</label>
+                <div class="slider"></div>
+                <label class="cname">Line 1</label>
+                <div id="line1" class="line"></div>
+                <label class="cname">Line 2 </label>
+                <div id="line2" class="line"></div>
+                <label class="cname">Line 3 </label>
+                <div id="line3"class="line"> </div>
+                <label class="cname">Line 4 </label>
+                <div id="line4" class="line"></div>
+                <label class="cname">Slider right</label>
+                <div class="slider"></div>
+                <div id="waveform"></div>
+                <div id="wave-timeline"></div>
+            </div>
+
+
+
+            <div style="height: 1px;width: 100%; background-color: #282828;"></div>
+            <div class="divslide">
+                <div id="working" class="working">Working on : </div>
+                <div style="padding: 6px;">
+                    <button id="export"><i id="iconexport" class="fa fa-download"></i></button>
+                    <button id="play"><i id="iconplay" class="fa fa-play"></i></button>
+                    <button id="bfile"><i id="iconfile" class="fa fa-upload"></i></button>
+
+                </div>
+                <div class="volume">
+                    <div>Volume</div>
+                    <div>
+                        -
+                        <input type="range" id="volume" value="75" min="0" max="100"></input>
+                        +
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="loadmusic">
+        <!-- <label for="file" class="label-file"><i class="fa fa-upload"></i></label> -->
+        <button id="quitmenu" style="height: 25px;background:none;border: none;"><i class="fa fa-xmark"></i></button>
+        <div id="labelmusic">
+            <div id="musicmenu"style="display: flex;justify-content: center;">
+                <div style="display: flex;flex-direction: column;">
+                    <div>
+                        <label>Music : </label>
+                        <input id="file" type="file" class="input-file" accept="audio/mp3">
+                    </div>
+                    <div>
+                        <input type="checkbox" id="checkmap">
+                        <label>Map : </label>
+                        <input id="map" type="file" class="input-map" accept=".pe" disabled>
+                    </div>
+                    <button id="testmap">test</button>
+                </div>
+                <div style="padding: 10px;">
+                    BPM <input id="BPM" value="130"></input> <br>
+                    Note par Beat <select id="select" >
+                        <option value="4">4</option>
+                        <option selected value="8">8</option>
+                        <option value="16">16</option>
+                        <option value="32">32</option>
+                    </select>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; margin-top: 100px;">
+                <button id="validmusic">Validate</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+</html>
