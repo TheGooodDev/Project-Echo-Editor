@@ -18,17 +18,6 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '/index.html'));
 });
 
-app.post('/',(req, res)=>{
-    fs.writeFile(path.join(__dirname, '/public/Map.txt'), req.body.content, err => {
-        if (err) {
-          console.error(err)
-          return
-        }
-
-      })
-})
-
-
 app.listen(port, () => {
     console.log('Server app listening on port ' + port);
 });

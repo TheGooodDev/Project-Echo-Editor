@@ -11,7 +11,6 @@ export class Note{
         this.container.innerHTML = text
         this.value = 0
 
-
         parent.appendChild(this.container)
 
         this.onclick()
