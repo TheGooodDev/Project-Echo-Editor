@@ -86,9 +86,6 @@ body {
     flex-direction: row;
 }
 
-.lineslider {
-    overflow: scroll;
-}
 
 .line {
     height: 60px;
@@ -132,6 +129,9 @@ body {
 .slideleftnote {
     color: white;
     border-right: 1px aqua solid;
+    font-size: 25px;
+    text-align: center;
+    vertical-align:middle;
     height: 100%;
 }
 
@@ -303,4 +303,13 @@ i.fa {
     background-color: rgb(125, 34, 152);
     width: 5px;
     height: 100%;
+}
+
+
+#canvas{
+    height: auto;
+    width: auto;
+    position: absolute;
+    cursor: not-allowed;
+    pointer-events: none;
 }

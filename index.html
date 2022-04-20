@@ -10,11 +10,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
     <script src="https://kit.fontawesome.com/833e85293e.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script type="module" src="/js/Waveform.js"></script>
 </head>
 
 
 <body>
+
     <div id="loading" style="display: none;">
         LOADING
     </div>
@@ -26,11 +26,11 @@
 
         <div class="audiospecter">
             <!-- <div id="progressbar"></div> -->
+
             <div id="aline" class="allLine">
+                    <canvas id="canvas">
+                    </canvas>
                 <div id="allslide">
-                    <!-- <div class="sliden">
-                        <div class="linedra"></div>
-                    </div> -->
                     <label class="cname">Slider left</label>
                     <div id="SliderLeft" class="slider"></div>
                     <label class="cname">Line 1</label>
@@ -44,6 +44,7 @@
                     <label class="cname">Slider right</label>
                     <div class="slider"></div>
                 </div>
+
                 <div id="waveform"></div>
                 <div id="wave-timeline"></div>
             </div>
@@ -54,6 +55,8 @@
             <div class="divslide">
                 <div id="working" class="working">Working on : </div>
                 <div style="padding: 6px;">
+                    <button id="del">del</button>
+                    <button id="test">test</button>
                     <button id="export"><i id="iconexport" class="fa fa-download"></i></button>
                     <button id="play"><i id="iconplay" class="fa fa-play"></i></button>
                     <button id="bfile"><i id="iconfile" class="fa fa-upload"></i></button>
@@ -103,6 +106,8 @@
             </div>
         </div>
     </div>
+    <script type="module" src="/js/Waveform.js"></script>
+
 </body>
 
 

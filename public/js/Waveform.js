@@ -19,6 +19,16 @@ const waveform = document.getElementById('waveform');
 const waveformchild = waveform.children[waveform.children.length - 1]
 const progressbar = waveformchild.children[0]
 
+const canvas = document.querySelector('#canvas');
+const allslide = document.getElementById('allslide')
+
+// Canvas Properties
+canvas.style.top = allslide.offsetTop
+canvas.height = allslide.offsetHeight
+canvas.style.zIndex = 10
+
+let ctx = canvas.getContext('2d');
+
 
 
 let width;
@@ -41,13 +51,21 @@ const iexport = document.getElementById('iconexport')
 const ValidButton = document.getElementById('validmusic')
 const filebutton = document.getElementById('bfile')
 const checkbox = document.getElementById('checkmap')
+const test = document.getElementById("test")
+const del = document.getElementById("del")
 
+test.onclick = function () {
+draw()
+}
 
+del.onclick = function (){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
 
 //Tab for export
 let Line = [[], [], [], []]
 
-let TabSlideLeft = []
+export let TabSlideLeft = []
 
 
 //Setup
@@ -95,6 +113,8 @@ checkbox.onchange = function () {
 }
 
 play.onclick = function () {
+    draw()
+    console.log("test")
     Pause()
 };
 
@@ -185,6 +205,7 @@ ValidButton.onclick = async function (e) {
                 width = duration * 1024
                 document.getElementById("waveform").style.width = `${width}px`
                 document.getElementById("wave-timeline").style.width = `${width}px`
+
             });
             if (wavesurfer.isPlaying()) {
                 play.classList.toggle("fa-pause")
@@ -217,6 +238,9 @@ wavesurfer.on('ready', function () {
     } else {
         createTile();
     }
+    canvas.width = allslide.offsetWidth
+
+    ctx = canvas.getContext('2d');
     var timeline = Object.create(WaveSurfer.Timeline);
     timeline.init({
         primaryColor: '#A8DBA8',
@@ -450,3 +474,26 @@ async function getBlobDuration(blob) {
     return durationP
 }
 
+export function drawLeft() {
+    // set line stroke and line width
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+
+    ctx.lineWidth = 5;
+
+    // draw a red line
+    ctx.strokeStyle = 'blue';
+    ctx.beginPath();
+    let first = TabSlideLeft[0]
+    ctx.moveTo(first.x, first.y);
+    TabSlideLeft.forEach(e =>{
+        if(e.activated){
+            ctx.lineTo(e.x,e.y)
+            ctx.strokeStyle = 'red';
+        }else{
+            ctx.moveTo(e.x , e.y);
+            ctx.strokeStyle = 'blue';
+        }
+    })
+    ctx.stroke();
+}
