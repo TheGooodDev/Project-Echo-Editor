@@ -95,6 +95,8 @@ body {
 }
 
 .allLine {
+    position: relative;
+    overflow: auto;
     height: auto;
     margin: 5px;
     overflow: scroll;
@@ -306,10 +308,12 @@ i.fa {
 }
 
 
-#canvas{
+.canvas{
+    position: absolute;
+    top: 0;
+    left: 0;
     height: auto;
     width: auto;
-    position: absolute;
     cursor: not-allowed;
     pointer-events: none;
 }

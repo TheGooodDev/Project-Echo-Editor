@@ -19,16 +19,31 @@ const waveform = document.getElementById('waveform');
 const waveformchild = waveform.children[waveform.children.length - 1]
 const progressbar = waveformchild.children[0]
 
-const canvas = document.querySelector('#canvas');
+
+const allCanvas = []
 const allslide = document.getElementById('allslide')
 
+function createCanvas(){
+    for(let i = 1; i < width/ 32000; i ++){
+        allCanvas.push(document.createElement("canvas"))
+        allCanvas[i-1].width = 32000
+        allCanvas[i-1].style.left = (i-1) * 32000
+        allCanvas[i-1].height = allslide.offsetHeight
+        allCanvas[i-1].style.zIndex = 10
+        allCanvas[i-1].classList.add("canvas")
+        allslide.appendChild(allCanvas[i-1])
+    }
+    allCanvas.push(document.createElement("canvas"))
+    allCanvas[allCanvas.length-1].width = 32000*(width/32000 - Math.floor(width/32000))
+    allCanvas[allCanvas.length-1].style.left = 32000* Math.floor(width/32000)
+    allCanvas[allCanvas.length-1].height = allslide.offsetHeight
+    allCanvas[allCanvas.length-1].style.zIndex = 10
+    allCanvas[allCanvas.length-1].classList.add("canvas")
+    allslide.appendChild(allCanvas[allCanvas.length-1])
+    console.log()
+}
+
 // Canvas Properties
-canvas.style.top = allslide.offsetTop
-canvas.height = allslide.offsetHeight
-canvas.style.zIndex = 10
-
-let ctx = canvas.getContext('2d');
-
 
 
 let width;
@@ -238,9 +253,9 @@ wavesurfer.on('ready', function () {
     } else {
         createTile();
     }
-    canvas.width = allslide.offsetWidth
 
-    ctx = canvas.getContext('2d');
+    createCanvas()
+    // ctx = canvas.getContext('2d');
     var timeline = Object.create(WaveSurfer.Timeline);
     timeline.init({
         primaryColor: '#A8DBA8',
@@ -476,17 +491,20 @@ async function getBlobDuration(blob) {
 
 export function drawLeft() {
     // set line stroke and line width
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    clearcanvas()
 
-    ctx.lineWidth = 5;
+    // ctx.lineWidth = 5;
 
-    // draw a red line
-    ctx.strokeStyle = 'blue';
-    ctx.beginPath();
-    let first = TabSlideLeft[0]
-    ctx.moveTo(first.x, first.y);
+    // // draw a red line
+    // ctx.strokeStyle = 'blue';
+    // ctx.beginPath();
+    // let first = TabSlideLeft[0]
+    // ctx.moveTo(first.x, first.y);
     TabSlideLeft.forEach(e =>{
+        if((width / wavesurfer.getDuration() / beat - 1)%32000 == 0){
+            console.log("succ")
+        }
         if(e.activated){
             ctx.lineTo(e.x,e.y)
             ctx.strokeStyle = 'red';
@@ -496,4 +514,13 @@ export function drawLeft() {
         }
     })
     ctx.stroke();
+}
+
+// Canvas
+
+function clearcanvas(){
+    allCanvas.forEach(e=>{
+        let ctx = e.getContext('2d');
+        ctx.clearRect(0, 0, e.width, e.height);
+    })
 }
